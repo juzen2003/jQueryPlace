@@ -43,3 +43,11 @@
 * target.insertAfter(source), same as source.after(target)
 * source.before(target), add target as the previous sibling of source
 * target.insertBefore(source), same as source.before(target)
+* source.replaceWith(target), replace source with target
+* target.replaceAll(source), same as source.replaceWith(target)
+* remove() would remove the element (and all descendants) and not remember any data or event listener
+* detach() would remove the element (and all descendants) but still remember data and event listener, so later on if the element is appended back to the page, all data and event listener would still be remembered
+* empty() would remove all descendants and empty the text but not remove itself (make the tag with empty content)
+* attr() would set the attribute of first selected element
+* prop() would be used to checked the boolean value of properties like checked, selected, and disabled
+* val() would be used to get or modify the value of input in form

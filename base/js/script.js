@@ -60,6 +60,7 @@ $(function() {
   // });
 
   // $(".lightbox").fadeIn(1000);
+  // ===========================================================================
 
   // $("p").css("background-color", "rgb(180, 180, 30, 0.8)");
   // $(".red-box").css("background-color", "rgb(180, 180, 30, 0.8)");
@@ -128,6 +129,52 @@ $(function() {
   // });
   // $(".blue-box").before($(".red-box"));
 
+  // $("li").replaceWith("<li>Replaced</li>");
+  // $("li").replaceWith(function(){
+  //     return "<li>Replaced with function.</li>"
+  // });
+  // let firstListItem = $("li:first");
+  // $("p:first").replaceWith(firstListItem);
+  // $("p").replaceWith(firstListItem);
 
+  // $(".red-box, .blue-box").replaceWith("<div class='green-box'>More Green</div>");
+  // $("<div class='green-box'>More Green</div>").replaceAll(".red-box, .blue-box");
 
+  // $("li").remove();
+  // $("form").children().not($("textarea, input:text, br")).remove();
+  // $("form").children().not("textarea, input:text, br").remove();
+
+  // let detachedListItem = $("li").detach();
+  // $("#content").append(detachedListItem);
+
+  // $("p:first").empty();
+  // $(".red-box, .green-box, .blue-box").empty();
+
+  // let specialLink = $("#special-link");
+  // console.log(specialLink.attr("href"));
+  // console.log(specialLink.attr("title"));
+  // specialLink.attr("href", "https://nba.com");
+
+  // let checkbox = $("input:checkbox");
+  // console.log(checkbox.prop("checked"));
+  // console.log(checkbox.attr("checked"));
+
+  // let textInput = $("input:text");
+  // textInput.val("Hello world");
+  // console.log(textInput.val());
+  // let rangeInput = $("input[type='range']");
+  // console.log(rangeInput.val());
+
+  let galleryImage = $(".gallery").find("img").first();
+  let allImages = ["images/laptop-mobile_small.jpg", "images/laptop-on-table_small.jpg", "images/people-office-group-team_small.jpg"];
+
+  let i = 0;
+  setInterval(function(){
+    i = (i + 1) % allImages.length;
+    galleryImage.fadeOut(1000, function() {
+      $(this).attr("src", allImages[i]);
+      $(this).fadeIn(1000);
+    });
+  }, 4000);
+  // ===========================================================================
 });
