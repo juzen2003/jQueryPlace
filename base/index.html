@@ -59,12 +59,27 @@
       </li>
     </ul>
 
-    <form action="">
-      <input type="text" value="Hi there"><br>
-      <input type="password"><br>
-      <input type="range" min="1" max="100" value="23">
-      <input type="checkbox" name="cb" checked><label for="cb">Check me</label><br>
-      <textarea name="" rows="10" cols="30"></textarea><br>
+    <form id="form" action="">
+      <input type="text" id="name" placeholder="Enter your name">
+      <span id="name-feedback"></span><br>
+
+      <input type="password" id="password" placeholder="Enter a password">
+      <span id="password-feedback"></span><br>
+
+      <input type="range" min="1" max="100" value="23"><br>
+
+      <textarea id="message" name="" rows="10" cols="30"></textarea>
+      <span id="message-feedback"></span><br><br>
+
+      <input type="checkbox" id="checkbox" name="cb"><label for="cb">Check me</label>
+      <span id="checkbox-feedback"></span><br><br>
+
+      <select id="selection" name="">
+        <option value="">Option 1</option>
+        <option value="">Option 2</option>
+        <option value="">Option 3</option>
+        <option value="">Option 4</option>
+      </select><br><br>
       <input type="submit">
     </form>
 

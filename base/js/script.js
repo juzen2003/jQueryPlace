@@ -367,5 +367,159 @@ $(function() {
   // });
   // ===========================================================================
 
-  
+  $(".gallery").hide();
+  // let inputFields = $("input:text, textarea, input:password");
+  // inputFields.focus(function() {
+  //   $(this).css("box-shadow", "0 0 4px #666");
+  // });
+  // inputFields.blur(function() {
+  //   $(this).css("box-shadow", "none");
+  // });
+  //
+  // $("#name").blur(function() {
+  //   if($(this).val().length < 3) {
+  //     $(this).css("box-shadow", "0 0 4px #811");
+  //   } else {
+  //     $(this).css("box-shadow", "0 0 4px #181");
+  //   }
+  // });
+
+  // $("#checkbox").change(function() {
+  //   let isChecked = $(this).is(":checked"); // this is the same as $(this).prop("checked");
+  //   if(isChecked) {
+  //     $(this).add("label[for='cb']").css("box-shadow", "0 0 4px #181");
+  //   } else {
+  //     $(this).add("label[for='cb']").css("box-shadow", "0 0 4px #811");
+  //   }
+  // });
+  //
+  // $("#selection").change(function() {
+  //   let selectedOption = $(this).find(":selected"); // this would find the only selected option in the select tag
+  //   alert(selectedOption.text());
+  // });
+
+  // $("#form").submit(function(event) {
+  //   let textarea = $("#message");
+  //   if(textarea.val().trim() === "") {
+  //     textarea.css("box-shadow", "0 0 4px #811");
+  //     event.preventDefault(); // this is to prevent default handlers (like page reload or submit info to database) when validation failed
+  //   } else {
+  //     // form will be submitted
+  //   }
+  // });
+  $(".red-box, .blue-box, .green-box, .dummy").hide();
+
+  let form = $("#form");
+  enableFastFeedback(form);
+
+  form.submit(function(event) {
+    let name = $("#name").val();
+    let password = $("#password").val();
+    let message = $("#message").val();
+    let checkbox = $("#checkbox").is(":checked");
+
+    validateNameField(name, event);
+    validatePasswordField(password, event);
+    validateTextarea(message, event);
+    validateCheckbox(checkbox, event);
+
+  });
+
+  function enableFastFeedback(formElement) {
+    let nameInput = formElement.find("#name");
+    let passwordInput = formElement.find("#password");
+    let messageInput = formElement.find("#message");
+    let checkboxInput = formElement.find("#checkbox");
+
+    fastFeedback(nameInput, validateNameField, isValidName);
+    fastFeedback(passwordInput, validatePasswordField, isValidPassword);
+    fastFeedback(messageInput, validateTextarea, isValidMessage);
+    checkboxFastFeedback(checkboxInput);
+  }
+
+  function fastFeedback(input, validField, validCheck) {
+    input.blur(function(event) {
+      let inputVal = $(this).val();
+      validField(inputVal, event);
+
+      if(!validCheck(inputVal)) {
+        $(this).css({
+          "box-shadow": "0 0 4px #811",
+          "border": "1px solid #600"
+        });
+      } else {
+        $(this).css({
+          "box-shadow": "0 0 4px #181",
+          "border": "1px solid #060"
+        });
+      }
+    });
+  }
+
+  function checkboxFastFeedback(input) {
+    input.change(function(event) {
+      let isChecked = $(this).is(":checked");
+      validateCheckbox(isChecked, event);
+
+      if(!isChecked) {
+        $(this).add("label[for='cb']").css({
+          "box-shadow": "0 0 4px #811",
+          "border": "1px solid #600"
+        });
+      } else {
+        $(this).add("label[for='cb']").css({
+          "box-shadow": "0 0 4px #181",
+          "border": "1px solid #060"
+        });
+      }
+    });
+  }
+
+  function validateNameField(name, event) {
+    if(!isValidName(name)) {
+      $("#name-feedback").text("Please enter at least two characters for name");
+      event.preventDefault();
+    } else {
+      $("#name-feedback").empty();
+    }
+  }
+
+  function isValidName(name) {
+    return name.length >= 2;
+  }
+
+  function validatePasswordField(password, event) {
+    if(!isValidPassword(password)) {
+      $("#password-feedback").text("Password should at least have 6 characters and contain a number");
+      event.preventDefault();
+    } else {
+      $("#password-feedback").empty();
+    }
+  }
+
+  function isValidPassword(password) {
+    return password.length >= 6 && /.*[0-9].*/.test(password);
+  }
+
+  function validateTextarea(message, event) {
+    if(!isValidMessage(message)) {
+      $("#message-feedback").text("Please enter some messages in textarea");
+      event.preventDefault();
+    } else {
+      $("#message-feedback").empty();
+    }
+  }
+
+  function isValidMessage(message) {
+    return message.trim() !== "";
+  }
+
+  function validateCheckbox(checkbox, event) {
+    if(!checkbox) {
+      $("#checkbox-feedback").text("Please check the checkbox");
+      event.preventDefault();
+    } else {
+      $("#checkbox-feedback").empty();
+    }
+  }
 });

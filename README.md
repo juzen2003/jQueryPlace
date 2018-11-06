@@ -72,3 +72,11 @@
 * keydown() would fire event when a key is pressed, check event.which to know the keycode
 
 ### Event, forms
+* focus() would fire event when input is selected or active
+* blur() would fire event when input is not selected nor active
+* For checkbox, radio button and select elements, we use change()
+* submit() would fire event when submit input is clicked, we can do input validation here, and use event.preventDefault() to avoid default handler like page reloading or sending info to database when input validation failed
+* add() would add more jquery object to the current selection
+
+### regex
+* reg_pattern.test(str)
