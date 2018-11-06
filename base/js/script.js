@@ -261,4 +261,111 @@ $(function() {
   // $(".green-box").hover(function() {
   //   $(this).text("I was hovered");
   // });
+
+  // let blueBox = $(".blue-box");
+  // blueBox.mouseenter(function() {
+  //   $(this).stop().fadeTo(500, 0.7);
+  // });
+  //
+  // blueBox.mouseleave(function() {
+  //   $(this).stop().fadeTo(500, 1);
+  // });
+
+  // hover(handlerIn, handlerOut)
+  // blueBox.hover(function() {
+  //   $(this).stop().fadeTo(500, 0.7);
+  // }, function() {
+  //   $(this).stop().fadeTo(500, 1);
+  // });
+
+  // .on("click", function() {...})
+  // function logEvent() {
+  //   console.log("Mouse was clicked or key was pressed.");
+  // }
+  // $("html").on("click keydown", logEvent);
+  //
+  // let i = 0;
+  // let allImages = [
+  //   "images/laptop-mobile_small.jpg",
+  //   "images/laptop-on-table_small.jpg",
+  //   "images/people-office-group-team_small.jpg"];
+  //
+  // let galleryImage = $(".gallery").find("img");
+  //
+  // function switchToNextImage() {
+  //   i = (i + 1) % allImages.length;
+  //   galleryImage.fadeOut(function() {
+  //     galleryImage.attr("src", allImages[i]).fadeIn();
+  //   });
+  // }
+  // galleryImage.on("click", switchToNextImage);
+
+  // without event delegation, the newly appended p would not have click handler attached
+  // $("p").on("click", function() {
+  //   $(this).slideUp();
+  // });
+  // $("#content").append("<p>This is a dynamically added paragraph.</p>");
+
+  // Delegated Events
+  // $("#content").on("click", "p", function() {
+  //   $(this).slideUp(); // this here is p tags under $("#content")
+  // });
+  // $("#content").append("<p>This is a dynamically added paragraph.</p>");
+
+  // $("body").on("mouseenter", "li", function() {
+  //   $(this).css("color", "#666"); // this here is li under $("body")
+  // });
+
+  // Pass data to event, pass an object to .on and obtain data from event.data
+  // function greetUser(userdata) {
+  //   let username = userdata.username || "Anonymous";
+  //   let domain = userdata.domain || "example.com";
+  //   alert(`Hi ${username} from ${domain}`);
+  // }
+  //
+  // $("#btn-click").on("click", {
+  //   username: "Dave",
+  //   domain: "davechang.com"
+  // }, function(event) {
+  //   greetUser(event.data);
+  // });
+
+  // let galleryItems = $(".gallery").find("img");
+  // galleryItems.css("width", "30%").css("opacity", "0.7");
+  //
+  // galleryItems.mouseenter(function() {
+  //   $(this).stop().fadeTo(500, 1);
+  // });
+  // galleryItems.mouseleave(function() {
+  //   $(this).stop().fadeTo(500, 0.7);
+  // });
+  //
+  // galleryItems.click(function() {
+  //   let source = $(this).attr("src");
+  //   let image = $("<img>").attr("src", source).css("width", "100%");
+  //   $(".lightbox").empty().append(image).fadeIn(2000);
+  // });
+  //
+  // $(".lightbox").on("click", function() {
+  //   $(this).stop().fadeOut(2000);
+  // });
+
+  // use event.which to know the key being pressed
+  // let ARROW_RIGHT = 39;
+  // let ARROW_LEFT = 37;
+  // $("html").on("keydown", function(event) {
+  //   console.log(event.which);
+  //   if(event.which === ARROW_RIGHT) {
+  //     $(".blue-box").stop().animate({
+  //       "margin-left": "+=10px"
+  //     }, 50);
+  //   } else if(event.which === ARROW_LEFT) {
+  //     $(".blue-box").stop().animate({
+  //       "margin-left": "-=10px"
+  //     }, 50);
+  //   }
+  // });
+  // ===========================================================================
+
+  
 });

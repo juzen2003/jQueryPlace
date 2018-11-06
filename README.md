@@ -62,4 +62,13 @@
 
 ### Event, handling mouse and keyboard events
 * click() would fire event when mouse click happened
-* hover() would fire event when mouse hover happened, so it would be twice, one is when mouse hovers in and the second one would be when mouse hovers out
+* hover(handlerIn, handlerOut) would fire event when mouse hover happened, so it would be twice, one is when mouse hovers in and the second one would be when mouse hovers out
+* mouseenter() would fire event when mouse is moved onto an element
+* mouseleave() would fire event when mouse is moved out of an element
+* use stop() to stop animations before performing next animation when an event happened, this would prevent event queue
+* on() would be a more readable way to attach event listener
+* To have dynamically added element that is also expected to be attached to event handler, we would use event delegation. We add event listener to the parent container (that would not disappear later due to handler like remove), and delegate events to be handled by its children (descendants, dynamically added element, pass in as 2nd parameter)
+*  when passing data to event, pass an object to .on as 2nd parameter and obtain data from event.data
+* keydown() would fire event when a key is pressed, check event.which to know the keycode
+
+### Event, forms
