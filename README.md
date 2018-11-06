@@ -34,7 +34,7 @@
 * first() & last() would select first & last of selected object
 * eq() would take in index as parameter and select the element at input index
 
-### DOM manipulations, insert, replace and remove elemetns
+### DOM manipulations, insert, replace and remove elements (HTML)
 * source.append(target), append (add to the last children) target to the selected source object
 * target.appendTo(source), same as source.append(target)
 * source.prepend(target), prepend (add to the first children) target to the selected source object
@@ -50,4 +50,16 @@
 * empty() would remove all descendants and empty the text but not remove itself (make the tag with empty content)
 * attr() would set the attribute of first selected element
 * prop() would be used to checked the boolean value of properties like checked, selected, and disabled
-* val() would be used to get or modify the value of input in form
+* val() would be used to get or modify the specified (passed in parameter) value of selected object
+* attr(), prop(), val(): these are for html tag
+
+### DOM manipulations, change element data and css
+* css() would change the css properties of selected tag
+* !important would not work with css()
+* addClass() would add a class to selected object
+* removeClass() would remove a class from selected object
+* data() would be used to save data to html element or retrieve data attribute (data-attr_name) info
+
+### Event, handling mouse and keyboard events
+* click() would fire event when mouse click happened
+* hover() would fire event when mouse hover happened, so it would be twice, one is when mouse hovers in and the second one would be when mouse hovers out

@@ -99,6 +99,7 @@ $(function() {
   // $("li").not(function(index){
   //   return index % 3 === 0;
   // }).css("background-color", "rgb(180, 180, 30, 0.8)");
+  // ===========================================================================
 
   // $(".red-box").after("<div class='red-box'>Red 2</div>");
   // $(".green-box").after("<div class='green-box'>Another Green</div>");
@@ -165,16 +166,99 @@ $(function() {
   // let rangeInput = $("input[type='range']");
   // console.log(rangeInput.val());
 
-  let galleryImage = $(".gallery").find("img").first();
-  let allImages = ["images/laptop-mobile_small.jpg", "images/laptop-on-table_small.jpg", "images/people-office-group-team_small.jpg"];
-
-  let i = 0;
-  setInterval(function(){
-    i = (i + 1) % allImages.length;
-    galleryImage.fadeOut(1000, function() {
-      $(this).attr("src", allImages[i]);
-      $(this).fadeIn(1000);
-    });
-  }, 4000);
+  // let galleryImage = $(".gallery").find("img").first();
+  // let allImages = ["images/laptop-mobile_small.jpg", "images/laptop-on-table_small.jpg", "images/people-office-group-team_small.jpg"];
+  //
+  // let i = 0;
+  // setInterval(function(){
+  //   i = (i + 1) % allImages.length;
+  //   galleryImage.fadeOut(1000, function() {
+  //     $(this).attr("src", allImages[i]);
+  //     $(this).fadeIn(1000);
+  //   });
+  // }, 4000);
   // ===========================================================================
+
+  // $(".gallery").css("display", "none");  // .hide()
+  // let redBox = $(".red-box");
+  // console.log(redBox.css("width"));
+  // console.log(redBox.width());
+  //
+  // redBox.css("background-color", "#AA7700");
+  // $("p").css("font-size", "18px");
+  // redBox.css("width", "+=20px");
+  //
+  // let properties = $("p").css(["font-size", "line-height", "color"]);
+  // console.log(properties);
+  // console.log(properties["font-size"]);
+
+  // redBox.css("user-select", function() {
+  //   return "none";
+  // });
+  // redBox.css("user-select", "none");
+  // ===========================================================================
+
+  // $("a").addClass("fancy-link"); // class="..."
+  // $("p:first").addClass("large emphasize");
+  //
+  // $("li li").addClass(function(index){
+  //   $(this).addClass("item-" + index);
+  // });
+  //
+  // $("div").addClass(function(index, currentClass){
+  //   if(currentClass === "dummy") {
+  //     return "red-box";
+  //   }
+  // });
+  //
+  // $(".red-box").removeClass("red-box").addClass("blue-box");
+
+  // $(".dummy").removeClass("dummy").addClass("green-box");
+
+  // let gallery = $(".gallery");
+  // let images = [
+  //   "images/laptop-mobile_small.jpg",
+  //   "images/laptop-on-table_small.jpg",
+  //   "images/people-office-group-team_small.jpg"
+  // ];
+  //
+  // gallery.data("availableImages", images);
+  // console.log(gallery.data("availableImages"));
+  // gallery.data("name", "The Awesome Gallery");
+  // console.log(gallery.data());
+  // gallery.removeData("name");
+  // console.log(gallery.data("name"));
+  //
+  // let firstP = $("p:first");
+  // console.log(firstP.data("mydata"));
+
+  // let firstP = $("p:first");
+  // console.log(firstP.text());
+  // console.log(firstP.html());
+  // console.log($("p").html()); // only show the first one
+  //
+  // firstP.text("<strong>Hello World!</strong>");
+  // firstP.html("<strong>Hello World!</strong>");
+
+  // firstP.html(function(){
+  //   return $(this).html() + " This is the append text!";
+  // });
+  // firstP.html(firstP.html() + "This is appended one");
+  // ===========================================================================
+
+  // $("#btn-click").click(function(event) {
+  //   console.log(event);
+  //   alert("Button was clicked");
+  // });
+  // $(".red-box").click(function(event) {
+  //   $(this).fadeTo(500, 0.5);
+  // });
+  // $(".red-box").click();
+
+  // $("#btn-hover").hover(function() {
+  //   alert("Button was hovered")
+  // });
+  // $(".green-box").hover(function() {
+  //   $(this).text("I was hovered");
+  // });
 });
