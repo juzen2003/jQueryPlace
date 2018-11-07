@@ -76,7 +76,17 @@
 * blur() would fire event when input is not selected nor active
 * For checkbox, radio button and select elements, we use change()
 * submit() would fire event when submit input is clicked, we can do input validation here, and use event.preventDefault() to avoid default handler like page reloading or sending info to database when input validation failed
-* add() would add more jquery object to the current selection
+* add() would add more jquery object to the current matched selection
 
 ### regex
 * reg_pattern.test(str)
+
+### Ajax
+* with ajax, we could get data and show it on the page without reloading the page
+* $.get(), $.post(), $.ajax(), $.getJSON()
+* $.load() would retrieve files from local server
+* to read the local file using ajax, try the following on the project terminal to fake it: python -m SimpleHTTPServer, and on the browser open: http://0.0.0.0:8000 to view the project directory
+* Need to add "?jsoncallback=?" to the end of api url so that we can send a JSON-P request
+* $.each(array, callback) could be used to iterate through an array for showing each data entry we got from api
+* done() & fail() could be used to handle successful or failed request, function inside done() would be executed when request is successful, and function inside fail() would be executed when request is failed.
+* Function inside always() would always get executed either it's successful or failed

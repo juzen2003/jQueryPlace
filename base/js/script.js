@@ -367,7 +367,7 @@ $(function() {
   // });
   // ===========================================================================
 
-  $(".gallery").hide();
+  // $(".gallery").hide();
   // let inputFields = $("input:text, textarea, input:password");
   // inputFields.focus(function() {
   //   $(this).css("box-shadow", "0 0 4px #666");
@@ -407,119 +407,196 @@ $(function() {
   //     // form will be submitted
   //   }
   // });
-  $(".red-box, .blue-box, .green-box, .dummy").hide();
 
-  let form = $("#form");
-  enableFastFeedback(form);
 
-  form.submit(function(event) {
-    let name = $("#name").val();
-    let password = $("#password").val();
-    let message = $("#message").val();
-    let checkbox = $("#checkbox").is(":checked");
+  // $(".red-box, .blue-box, .green-box, .dummy").hide();
+  //
+  // let form = $("#form");
+  // enableFastFeedback(form);
+  //
+  // form.submit(function(event) {
+  //   let name = $("#name").val();
+  //   let password = $("#password").val();
+  //   let message = $("#message").val();
+  //   let checkbox = $("#checkbox").is(":checked");
+  //
+  //   validateNameField(name, event);
+  //   validatePasswordField(password, event);
+  //   validateTextarea(message, event);
+  //   validateCheckbox(checkbox, event);
+  //
+  // });
+  //
+  // function enableFastFeedback(formElement) {
+  //   let nameInput = formElement.find("#name");
+  //   let passwordInput = formElement.find("#password");
+  //   let messageInput = formElement.find("#message");
+  //   let checkboxInput = formElement.find("#checkbox");
+  //
+  //   fastFeedback(nameInput, validateNameField, isValidName);
+  //   fastFeedback(passwordInput, validatePasswordField, isValidPassword);
+  //   fastFeedback(messageInput, validateTextarea, isValidMessage);
+  //   checkboxFastFeedback(checkboxInput);
+  // }
+  //
+  // function fastFeedback(input, validField, validCheck) {
+  //   input.blur(function(event) {
+  //     let inputVal = $(this).val();
+  //     validField(inputVal, event);
+  //
+  //     if(!validCheck(inputVal)) {
+  //       $(this).css({
+  //         "box-shadow": "0 0 4px #811",
+  //         "border": "1px solid #600"
+  //       });
+  //     } else {
+  //       $(this).css({
+  //         "box-shadow": "0 0 4px #181",
+  //         "border": "1px solid #060"
+  //       });
+  //     }
+  //   });
+  // }
+  //
+  // function checkboxFastFeedback(input) {
+  //   input.change(function(event) {
+  //     let isChecked = $(this).is(":checked");
+  //     validateCheckbox(isChecked, event);
+  //
+  //     if(!isChecked) {
+  //       $(this).add("label[for='cb']").css({
+  //         "box-shadow": "0 0 4px #811",
+  //         "border": "1px solid #600"
+  //       });
+  //     } else {
+  //       $(this).add("label[for='cb']").css({
+  //         "box-shadow": "0 0 4px #181",
+  //         "border": "1px solid #060"
+  //       });
+  //     }
+  //   });
+  // }
+  //
+  // function validateNameField(name, event) {
+  //   if(!isValidName(name)) {
+  //     $("#name-feedback").text("Please enter at least two characters for name");
+  //     event.preventDefault();
+  //   } else {
+  //     $("#name-feedback").empty();
+  //   }
+  // }
+  //
+  // function isValidName(name) {
+  //   return name.length >= 2;
+  // }
+  //
+  // function validatePasswordField(password, event) {
+  //   if(!isValidPassword(password)) {
+  //     $("#password-feedback").text("Password should at least have 6 characters and contain a number");
+  //     event.preventDefault();
+  //   } else {
+  //     $("#password-feedback").empty();
+  //   }
+  // }
+  //
+  // function isValidPassword(password) {
+  //   return password.length >= 6 && /.*[0-9].*/.test(password);
+  // }
+  //
+  // function validateTextarea(message, event) {
+  //   if(!isValidMessage(message)) {
+  //     $("#message-feedback").text("Please enter some messages in textarea");
+  //     event.preventDefault();
+  //   } else {
+  //     $("#message-feedback").empty();
+  //   }
+  // }
+  //
+  // function isValidMessage(message) {
+  //   return message.trim() !== "";
+  // }
+  //
+  // function validateCheckbox(checkbox, event) {
+  //   if(!checkbox) {
+  //     $("#checkbox-feedback").text("Please check the checkbox");
+  //     event.preventDefault();
+  //   } else {
+  //     $("#checkbox-feedback").empty();
+  //   }
+  // }
+  // ===========================================================================
 
-    validateNameField(name, event);
-    validatePasswordField(password, event);
-    validateTextarea(message, event);
-    validateCheckbox(checkbox, event);
+  // $.load(), since we are loading local file, make sure do these:
+  // at terminal: python -m SimpleHTTPServer
+  // at browser: http://0.0.0.0:8000`
+  // $("#code").load("js/scripts.js");
+  // $("#code").load("js/script.js", function(response, status) {
+  //   if(status === "error") {
+  //     alert("Could not find the file");
+  //   }
+  //
+  //   console.log(response);
+  // });
 
+  // // JSON, $.getJSON()
+  // let flickrApiUrl = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?"; // need to add "?jsoncallback=?" to have a JSON-P request
+  //
+  // $.getJSON(flickrApiUrl, {
+  //     tags: "sf",
+  //     tagmode: "any",
+  //     format: "json"
+  // }).done(function(data) {
+  //   // sucess
+  //   // console.log(data);
+  //   $.each(data.items, function(index, item) {
+  //     // console.log(item);
+  //     $("#flickr").append(`<img src="${item.media.m}" alt="">`);
+  //     if(index === 9) {
+  //       return false;
+  //     }
+  //   });
+  // }).fail(function() {
+  //   // failure
+  //   alert("Ajax call failed.");
+  // });
+
+  // Use starwar api
+  let starWarapiUrl = "https://swapi.co/api/";
+
+  $.getJSON(starWarapiUrl + "people").done(function(data) {
+    // console.log(data);
+    $.each(data.results, function(index, character) {
+      let name = character.name;
+      let detailedUrl = character.url;
+      let link = $("<a>").attr("href", "#").attr("id", name).append($("<strong>").text(name));
+      // $("#starwar").append(`<p>StarWar Character no. ${index+1} is ${name}</p>`);
+      let par = $("<p>").html(`StarWar Character no. ${index+1} is `).append(link);
+      par.appendTo("#starwar");
+
+      link.click(function(event) {
+        $.getJSON(detailedUrl).done(function(details) {
+          // console.log(details);
+          let detailName = details.name;
+          let height = details.height;
+          let mass = details.mass;
+          let gender = details.gender;
+          let birthYear = details.birth_year;
+          let detailDiv = $("#starwar-details");
+          detailDiv.empty();
+          detailDiv.append(`<h2>${detailName}</h2>`);
+          detailDiv.append(`<p>Height: ${height}</p>`);
+          detailDiv.append(`<p>Mass: ${mass}</p>`);
+          detailDiv.append(`<p>Gender: ${gender}</p>`);
+          detailDiv.append(`<p>Birth Year: ${birthYear}</p>`);
+          detailDiv.append("<br>");
+        });
+        event.preventDefault();
+      });
+
+    });
+  }).fail(function() {
+    console.log("Request to StarWar API failed.");
+  }).always(function() {
+    console.log("StarWar is awesome!");
   });
-
-  function enableFastFeedback(formElement) {
-    let nameInput = formElement.find("#name");
-    let passwordInput = formElement.find("#password");
-    let messageInput = formElement.find("#message");
-    let checkboxInput = formElement.find("#checkbox");
-
-    fastFeedback(nameInput, validateNameField, isValidName);
-    fastFeedback(passwordInput, validatePasswordField, isValidPassword);
-    fastFeedback(messageInput, validateTextarea, isValidMessage);
-    checkboxFastFeedback(checkboxInput);
-  }
-
-  function fastFeedback(input, validField, validCheck) {
-    input.blur(function(event) {
-      let inputVal = $(this).val();
-      validField(inputVal, event);
-
-      if(!validCheck(inputVal)) {
-        $(this).css({
-          "box-shadow": "0 0 4px #811",
-          "border": "1px solid #600"
-        });
-      } else {
-        $(this).css({
-          "box-shadow": "0 0 4px #181",
-          "border": "1px solid #060"
-        });
-      }
-    });
-  }
-
-  function checkboxFastFeedback(input) {
-    input.change(function(event) {
-      let isChecked = $(this).is(":checked");
-      validateCheckbox(isChecked, event);
-
-      if(!isChecked) {
-        $(this).add("label[for='cb']").css({
-          "box-shadow": "0 0 4px #811",
-          "border": "1px solid #600"
-        });
-      } else {
-        $(this).add("label[for='cb']").css({
-          "box-shadow": "0 0 4px #181",
-          "border": "1px solid #060"
-        });
-      }
-    });
-  }
-
-  function validateNameField(name, event) {
-    if(!isValidName(name)) {
-      $("#name-feedback").text("Please enter at least two characters for name");
-      event.preventDefault();
-    } else {
-      $("#name-feedback").empty();
-    }
-  }
-
-  function isValidName(name) {
-    return name.length >= 2;
-  }
-
-  function validatePasswordField(password, event) {
-    if(!isValidPassword(password)) {
-      $("#password-feedback").text("Password should at least have 6 characters and contain a number");
-      event.preventDefault();
-    } else {
-      $("#password-feedback").empty();
-    }
-  }
-
-  function isValidPassword(password) {
-    return password.length >= 6 && /.*[0-9].*/.test(password);
-  }
-
-  function validateTextarea(message, event) {
-    if(!isValidMessage(message)) {
-      $("#message-feedback").text("Please enter some messages in textarea");
-      event.preventDefault();
-    } else {
-      $("#message-feedback").empty();
-    }
-  }
-
-  function isValidMessage(message) {
-    return message.trim() !== "";
-  }
-
-  function validateCheckbox(checkbox, event) {
-    if(!checkbox) {
-      $("#checkbox-feedback").text("Please check the checkbox");
-      event.preventDefault();
-    } else {
-      $("#checkbox-feedback").empty();
-    }
-  }
 });
